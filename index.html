@@ -33,7 +33,7 @@
                 </ul>
               </li>
               <li class="nav-item mx-3"><a href="#about" class="nav-link">About Us</a></li>
-              <li class="nav-item mx-3"><a href="#contact" class="nav-link">Contact</a></li>
+              <li class="nav-item mx-3"><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal" class="nav-link">Contact</a></li>
             </ul>
           </nav>
 
@@ -45,8 +45,8 @@
             <a href="#profile" class="me-3">
               <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile Icon" width="25">
             </a>
-            <a href="#cart">
-              <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Cart Icon" width="30">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Іконка Кошика" width="30">
             </a>
           </div>
         </div>
@@ -72,6 +72,54 @@
         <!-- Продукти будуть додані тут -->
       </div>
     </main>
+
+    <!-- Секція "Про нас" -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Про нас</h2>
+        <p class="text-center">Ми пропонуємо оригінальну продукцію Nike високої якості. Наш магазин прагне забезпечити комфорт, стиль і надійність у кожному кроці.</p>
+      </div>
+    </section>
+<!-- Модалка "Контакти" -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">Зв'яжіться з нами</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Email: info@nike-store.com</p>
+            <p>Телефон: +38 (123) 456-7890</p>
+            <p>Адреса: Київ, Україна</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модалка "Кошик" -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Кошик</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-container">
+              <!-- Продукти у кошику -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="clearCartButton">Очистити кошик</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Оновлений футер -->
     <footer class="footer bg-dark text-white py-4">

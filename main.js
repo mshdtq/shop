@@ -89,24 +89,50 @@ function getCookieValue(cookieName) {
   return null;
 }
 function getCartProductHtml(item) {
-  return `
-      <div style="border: 1px solid black">
-          <p>${item.title}</p>
-          <p>${item.price}</p>
-          <p>${item.quantity}</p>
+    return `
+    <div class="card mb-3">
+      <div class="row g-0">
+        <!-- Изображение продукта -->
+        <div class="col-md-4">
+          <img src="${item.image}" class="img-fluid rounded-start" alt="${item.title}">
+        </div>
+        <!-- Содержимое карточки -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${item.title}</h5>
+            <p class="card-text">Ціна: <strong>${item.price}$</strong></p>
+            <p class="card-text">Кількість: <strong>${item.quantity}</strong></p>
+          </div>
+        </div>
       </div>
-`
+    </div>
+  `;
 }
 
-function showCart() {
-  const cartContainer = document.querySelector('.cart-container')
-  cartContainer.innerHTML = ''
-  for (let key in cart.items) {
-      cartContainer.innerHTML += getCartProductHtml(cart.items[key])
-  }
+function clearCart() {
+    cart.items = {}; // Очистити всі товари у кошику
+    cart.saveCartToCookies(); // Зберегти зміни
+    showCart(); // Оновити відображення кошика
+}
 
-  cart.loadCartToCookies()
+// Додаємо обробник для кнопки очищення кошика
+document.getElementById('clearCartButton').addEventListener('click', clearCart);
+
+// Показати вміст кошика
+function showCart() {
+    const cartContainer = document.querySelector('.cart-container');
+    cartContainer.innerHTML = ''; // Очистити вміст
+
+    cart.loadCartToCookies(); // Оновити дані з cookies
+
+    console.log('cart', cart.items)
+
+    // Відображати продукти у кошику
+    for (let key in cart.items) {
+        cartContainer.innerHTML += getCartProductHtml(cart.items[key]);
+    }
+
+
 }
 
 showCart()
-  
